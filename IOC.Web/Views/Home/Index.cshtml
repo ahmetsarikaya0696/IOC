@@ -3,18 +3,25 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     <div>
-        <h1>Singleton</h1>
-        <h2>@ViewBag.SingletonTime1</h2>
-        <h2>@ViewBag.SingletonTime2</h2>
-        <span>Uygulamanın başından sonuna kadar tek bir nesne örneğini kullanır.</span>
-    </div>
-    <div>
-        <h1>Scoped</h1>
-        <h2>@ViewBag.ScopedTime1</h2>
-        <h2>@ViewBag.ScopedTime2</h2>
-        <span>Her Request için yeni bir nesne örneği oluşturur</span>
+        <div class="my-2">
+            <h1>Singleton</h1>
+            <h2>@ViewBag.SingletonTime1</h2>
+            <h2>@ViewBag.SingletonTime2</h2>
+            <span>Uygulamanın başından sonuna kadar tek bir nesne örneğini kullanır.</span>
+        </div>
+        <div class="my-2">
+            <h1>Scoped</h1>
+            <h2>@ViewBag.ScopedTime1</h2>
+            <h2>@ViewBag.ScopedTime2</h2>
+            <span>Her Request için yeni bir nesne örneği oluşturur</span>
+        </div>
+
+        <div class="my-2">
+            <h1>Transient</h1>
+            <h2>@ViewBag.TransientTime1</h2>
+            <h2>@ViewBag.TransientTime2</h2>
+            <span>Her injection için yeni bir nesne oluşturur.</span>
+        </div>
     </div>
 </div>

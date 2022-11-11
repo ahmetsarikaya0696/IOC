@@ -8,14 +8,16 @@ namespace IOC.Web.Controllers
     {
         private readonly ISingletonDateService _singletonDateService;
         private readonly IScopedDateService _scopedDateService;
+        private readonly ITransientDateService _transientDateService;
 
-        public HomeController(ISingletonDateService singletonDateService, IScopedDateService scopedDateService)
+        public HomeController(ISingletonDateService singletonDateService, IScopedDateService scopedDateService, ITransientDateService transientDateService)
         {
             _singletonDateService = singletonDateService;
             _scopedDateService = scopedDateService;
+            _transientDateService = transientDateService;
         }
 
-        public IActionResult Index([FromServices]ISingletonDateService _singletonDateService2, [FromServices]IScopedDateService _scopedDateService2)
+        public IActionResult Index([FromServices]ISingletonDateService _singletonDateService2, [FromServices]IScopedDateService _scopedDateService2, [FromServices]ITransientDateService _transientDateService2)
         {
             // Singleton
             ViewBag.SingletonTime1 = _singletonDateService.GetCurrentDate.ToString();
@@ -24,8 +26,11 @@ namespace IOC.Web.Controllers
             // Scoped
             ViewBag.ScopedTime1 = _scopedDateService.GetCurrentDate.TimeOfDay.ToString();
             ViewBag.ScopedTime2 = _scopedDateService2.GetCurrentDate.TimeOfDay.ToString();
-            
-            
+
+            // Transient
+            ViewBag.TransientTime1 = _transientDateService.GetCurrentDate.TimeOfDay.ToString();
+            ViewBag.TransientTime2 = _transientDateService2.GetCurrentDate.TimeOfDay.ToString();
+
             return View();
         }
 
