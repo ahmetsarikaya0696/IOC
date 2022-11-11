@@ -1,6 +1,6 @@
 ﻿namespace IOC.ConsoleApp
 {
-    internal class DAL
+    internal class DAL : IDAL
     {
         public List<Product> GetProducts()
         {
@@ -11,6 +11,12 @@
                 new Product() {Id = 3, Name="Kalem 3", Price=500M, Stock=400},
                 new Product() {Id = 4, Name="Kalem 4", Price=700M, Stock=500},
             };
+        }
+
+        // Interface ' te geçmediği için bu IDAL bu metotu kullanamaz
+        public int Hesapla()
+        {
+            return 100;
         }
     }
 }
