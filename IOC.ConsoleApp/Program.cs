@@ -1,4 +1,5 @@
 ﻿// tightly coupled koddan loosely couple koda doğru iyileştirme yapılarak devam edilecek
+// O : Open-Closed Principle => DI sayesinde gelişime açık değişime kapalı bir kod yazmış olduk.
 
 namespace IOC.ConsoleApp
 {
@@ -6,7 +7,7 @@ namespace IOC.ConsoleApp
     {
         static void Main(string[] args)
         {
-            BL bl = new();
+            BL bl = new(new SQLServerDAL()); // IOC kullanılsaydı burdaki kodu yazmamıza gerek kalmayacaktı
 
             bl.GetProducts().ForEach(p =>
             {

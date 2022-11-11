@@ -10,7 +10,7 @@ namespace IOC.ConsoleApp
     {
         public static IDAL GetDAL()
         {
-            return new DAL();
+            return new SQLServerDAL();
         }
     }
 }
